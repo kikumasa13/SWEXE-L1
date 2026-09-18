@@ -1,0 +1,6 @@
+<h1><%= @task.title %></h1>
+<p><%= @task.description %></p>
+<p>期限: <%= @task.due_date %></p>
+
+<%= link_to "編集", edit_task_path(@task) %>
+<%= link_to "一覧に戻る", tasks_path %>

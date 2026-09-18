@@ -1,0 +1,15 @@
+<%= form_with model: task, data: { turbo: false } do |f| %>
+  <div>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description, "詳細" %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.label :due_date, "期限" %>
+    <%= f.date_field :due_date %>
+  </div>
+  <%= f.submit %>
+<% end %>
