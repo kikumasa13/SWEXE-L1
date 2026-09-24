@@ -17,7 +17,8 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: "タスクを作成しました"
     else
-      render :new
+      flash.now[:alert] = "タスクの作成に失敗しました。入力内容をご確認ください。"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +29,8 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to @task, notice: "タスクを更新しました"
     else
-      render :edit
+      flash.now[:alert] = "タスクの更新に失敗しました。入力内容をご確認ください。"
+      render :edit, status: :unprocessable_entity
     end
   end
 
