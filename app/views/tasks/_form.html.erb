@@ -1,5 +1,5 @@
-<%= form_with model: task, data: { turbo: false } do |f| %>
-    <% if task.errors.any? %>
+<%= form_with model: task, data: { turbo: false }, class: "task-form" do |f| %>
+  <% if task.errors.any? %>
     <div class="error-explanation">
       <h2><%= pluralize(task.errors.count, "件") %>のエラーがあります</h2>
       <ul>
@@ -9,17 +9,24 @@
       </ul>
     </div>
   <% end %>
-  <div>
+
+  <div class="field">
     <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: ("field-error" if task.errors[:title].any?) %>
   </div>
-  <div>
+
+  <div class="field">
     <%= f.label :description, "詳細" %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, rows: 5, class: ("field-error" if task.errors[:description].any?) %>
   </div>
-  <div>
+
+  <div class="field">
     <%= f.label :due_date, "期限" %>
-    <%= f.date_field :due_date %>
+    <%= f.date_field :due_date, class: ("field-error" if task.errors[:due_date].any?) %>
   </div>
-  <%= f.submit %>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to "キャンセル", tasks_path, class: "btn btn-secondary" %>
+  </div>
 <% end %>

@@ -23,10 +23,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <% flash.each do |type, message| %>
-    <div class="flash flash-<%= type %>"><%= message %></div>
-    <% end %>
-    <%= yield %>
+    <body>
+    <header class="site-header">
+      <%= link_to "タスク管理アプリ", root_path, class: "site-title" %>
+    </header>
+
+    <main class="container">
+      <% flash.each do |type, message| %>
+        <div class="flash flash-<%= type %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+    </main>
   </body>
 </html>
