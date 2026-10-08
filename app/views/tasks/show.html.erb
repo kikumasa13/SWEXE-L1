@@ -1,7 +1,7 @@
 <div class="task-detail">
   <h1><%= @task.title %></h1>
   <p class="task-description"><%= simple_format(@task.description) %></p>
-  <p class="task-due"><span class="label">期限:</span> <%= @task.due_date %></p>
+  <p class="task-due"><span class="label">期限:</span> <%= format_date(@task.due_date) %> <%= due_badge(@task) %></p>
 
   <div class="actions">
     <%= link_to "編集", edit_task_path(@task), class: "btn btn-primary" %>

@@ -15,7 +15,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to @task, notice: "タスクを作成しました"
+      redirect_to task_path(@task), notice: "タスクを作成しました"
     else
       flash.now[:alert] = "タスクの作成に失敗しました。入力内容をご確認ください。"
       render :new, status: :unprocessable_entity
@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: "タスクを更新しました"
+      redirect_to task_path(@task), notice: "タスクを更新しました"
     else
       flash.now[:alert] = "タスクの更新に失敗しました。入力内容をご確認ください。"
       render :edit, status: :unprocessable_entity

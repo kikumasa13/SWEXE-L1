@@ -1,0 +1,5 @@
+<%= link_to "タスク管理アプリ", root_path, class: "site-title" %>
+<nav class="header-nav">
+  <%= link_to "タスク一覧", tasks_path, class: nav_link_class(tasks_path) %>
+  <%= link_to "新規作成", new_task_path, class: nav_link_class(new_task_path) %>
+</nav>
